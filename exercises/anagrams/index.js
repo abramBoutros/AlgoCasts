@@ -8,6 +8,28 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+const isLetter =(char) => char.toLowerCase() !== char.toUpperCase()
 
+function anagrams(s1, s2) {
+  let hashmap = {};
+
+  for(c of s1){
+    if(isLetter(c)){
+      if(!hashmap[c]) hashmap[c] = 1;
+      else hashmap[c] += 1;
+    }
+  }
+
+  for(c of s2){
+    if(isLetter(c)){
+      if(!hashmap[c]) return false;
+      hashmap[c]--;
+      if(hashmap[c] < 0) return false;
+    }
+  }
+  if(Math.min(...Object.values(hashmap)) < 0 || Math.max(...Object.values(hashmap)) > 0 ) return false;
+  return true;
+}
+
+anagrams('RAIL! SAFETY', 'fairy tales');
 module.exports = anagrams;
