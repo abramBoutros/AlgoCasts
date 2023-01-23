@@ -18,7 +18,8 @@
 function matrix(n) {
   let i = 1;
   let matrix = [];
-
+  let startColumn = 0 , endColumn = n - 1, startRow = 0, endRow = n - 1;
+  console.log(startColumn,endRow);
   for(let x = 0; x < n; x++ ){
     matrix[x] = []
     for(let y = 0; y < n; y++){
@@ -31,5 +32,12 @@ function matrix(n) {
 }
 
 matrix(4);
+
+/**
+ * 1 2 3 4
+ *12 13 14 5
+ *11 16 15 6
+ *10 9 8 7 
+ */
 
 module.exports = matrix;
